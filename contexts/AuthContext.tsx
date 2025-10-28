@@ -48,8 +48,9 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       await fetchUser();
       toast.success('Login successful!');
       closeAuthModal();
-      // Force a page reload to ensure proper routing
-      window.location.reload();
+      
+      // Navigate to dashboard without reload
+      window.location.hash = '/dashboard';
     },
     onError: (error) => {
       console.error('Login failed:', error);
@@ -58,7 +59,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   });
 
   const registerMutation = useMutation<any, Error, any>({
-    mutationFn: (userData) => api.post('/api/auth/users/', userData),
+    mutationFn: (userData) => api.post('/api/core/register-with-role/', userData),
     onSuccess: async (data) => {
       // If registration returns user data with tokens, log them in automatically
       if (data.access && data.refresh) {
@@ -66,8 +67,9 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         await fetchUser();
         toast.success('Registration successful! Welcome to YouthGuard!');
         closeAuthModal();
-        // Force a page reload to ensure proper routing
-        window.location.reload();
+        
+        // Navigate to dashboard without reload
+        window.location.hash = '/dashboard';
       } else {
         // If no tokens, show login form
         toast.success('Registration successful! Please log in to continue.');

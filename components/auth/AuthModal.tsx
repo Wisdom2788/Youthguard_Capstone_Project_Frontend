@@ -22,6 +22,9 @@ const AuthForm = ({ isRegister = false }: { isRegister?: boolean }) => {
         re_password: data.confirmPassword
       };
       delete userData.confirmPassword;
+
+
+
       await registerUser(userData);
     } else {
       await login(data);
