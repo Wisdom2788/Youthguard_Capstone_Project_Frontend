@@ -37,7 +37,7 @@ const EmployerDashboard = () => {
     return (
         <div className="space-y-6">
             <div>
-                <h1 className="text-3xl font-bold">Welcome back, {user?.first_name}!</h1>
+                <h1 className="text-3xl font-bold">Welcome {user?.first_name}</h1>
                 <p className="text-muted-foreground dark:text-dark-muted">
                     Manage your company's job postings and find the best talent.
                 </p>

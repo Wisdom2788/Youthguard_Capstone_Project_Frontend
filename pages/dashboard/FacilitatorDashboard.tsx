@@ -35,7 +35,7 @@ const FacilitatorDashboard = () => {
     return (
         <div className="space-y-6">
             <div>
-                <h1 className="text-3xl font-bold">Welcome back, {user?.first_name}!</h1>
+                <h1 className="text-3xl font-bold">Welcome {user?.first_name}</h1>
                 <p className="text-muted-foreground dark:text-dark-muted">
                     Manage your courses and engage with learners to help them grow.
                 </p>
